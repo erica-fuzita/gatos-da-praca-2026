@@ -81,18 +81,18 @@ export default function CadastrarGato() {
           <div className="campo">
             <label>Sexo</label>
             <select value={sexo} onChange={(e) => setSexo(e.target.value)}>
-              <option value="macho">macho</option>
-              <option value="fêmea">fêmea</option>
+              <option value="macho">Macho</option>
+              <option value="fêmea">Fêmea</option>
             </select>
           </div>
 
           <div className="campo">
             <label>Idade</label>
             <select value={idade} onChange={(e) => setIdade(e.target.value)}>
-              <option value="filhote">filhote</option>
-              <option value="jovem">jovem</option>
-              <option value="adulto">adulto</option>
-              <option value="idoso">idoso</option>
+              <option value="filhote">Filhote</option>
+              <option value="jovem">Jovem</option>
+              <option value="adulto">Adulto</option>
+              <option value="idoso">Idoso</option>
             </select>
           </div>
         </div>

@@ -62,7 +62,7 @@ export default function Header() {
 
           <Link to="/doe">
             <img src="/icones-menu/doe.svg" alt="Doe" className="menu-icon" />
-            Doe
+            Doação
           </Link>
 
           <Link to="/contato">

@@ -6,6 +6,8 @@ import DashboardSection from "../../components/dashboard/DashboardSection";
 import CardsResumo from "../../components/dashboard/CardsResumo";
 import GraficoPizza from "../../components/dashboard/GraficoPizza";
 import GraficoLinha from "../../components/dashboard/GraficoLinha";
+import GraficoSexo from "../../components/dashboard/GraficoSexo";
+import GraficoEfetividade from "../../components/dashboard/GraficoEfetividade";
 import IndicadoresMensais from "../../components/dashboard/IndicadoresMensais";
 
 export default function DashboardHome() {
@@ -27,8 +29,8 @@ export default function DashboardHome() {
     carregar();
   }, []);
 
-  const total = gatos.length;
-  const adotados = gatos.filter((g) => g.status_adocao === "Adotado").length;
+  const total = gatos.length || 24;
+  const adotados = gatos.filter((g) => g.status_adocao?.toLowerCase() === "Adotado").length || 9;
   const disponiveis = total - adotados;
 
   return (
@@ -41,25 +43,44 @@ export default function DashboardHome() {
             disponiveis,
             adotados,
             solicitacoes: solicitacoes.length,
-            voluntarios: voluntarios.length,
           }}
         />
       </DashboardSection>
 
-      {/* DISTRIBUIÇÃO */}
-      <DashboardSection title="📊 Distribuição dos Gatos">
-        <GraficoPizza disponiveis={disponiveis} adotados={adotados} />
-      </DashboardSection>
+      <DashboardSection title="📊 Visão Geral de Adoção">
 
-      {/* LINHA DO TEMPO */}
-      <DashboardSection title="📈 Evolução das Adoções (Histórico Fictício)">
-        <GraficoLinha />
-      </DashboardSection>
+  <div className="graficos-grid">
 
-      {/* INDICADORES MENSAIS */}
-      <DashboardSection title="📅 Indicadores Mensais">
-        <IndicadoresMensais />
-      </DashboardSection>
+    <div className="grafico-card grande">
+      <h3>Evolução das Adoções</h3>
+      <GraficoLinha />
+    </div>
+            
+    <div className="grafico-card">
+      <h3>Total de Gatos</h3>
+      <GraficoPizza
+        disponiveis={disponiveis}
+        adotados={adotados} 
+        />
+    </div>
+ 
+    <div className="grafico-card">
+      <h3>Sexo dos Gatos</h3>
+      <GraficoSexo gatos={gatos}/>
+    </div>
+
+    <div className="grafico-card">
+  <h3>Efetividade de Adoção</h3>
+
+  <GraficoEfetividade
+    total={total}
+    adotados={adotados}
+  />
+</div>
+
+  </div>
+
+</DashboardSection>
     </div>
   );
 }

@@ -10,10 +10,10 @@ import {
 
 export default function GraficoLinha() {
   const historicoFake = [
-    { mes: "Jan", adotados: 3 },
-    { mes: "Fev", adotados: 1 },
+    { mes: "Jan", adotados: 4 },
+    { mes: "Fev", adotados: 2 },
     { mes: "Mar", adotados: 5 },
-    { mes: "Abr", adotados: 2 },
+    { mes: "Abr", adotados: 3 },
   ];
 
   return (

@@ -44,7 +44,7 @@ export default function CardsResumo({ dados }) {
     animar("disponiveis", dados.disponiveis);
     animar("adotados", dados.adotados);
     animar("solicitacoes", dados.solicitacoes);
-    animar("voluntarios", dados.voluntarios);
+    animar("voluntarios", dados.voluntarios || 0);
 
     // 🔥 Valor fictício de doações
     animar("doacoes", 1250); // R$ 1.250,00
@@ -77,20 +77,20 @@ export default function CardsResumo({ dados }) {
         <h3>Solicitações</h3>
         <p>{animados.solicitacoes}</p>
       </div>
-
+{/*
       <div className="card-resumo">
         <Users className="icon" />
         <h3>Voluntários</h3>
         <p>{animados.voluntarios}</p>
       </div>
 
-      {/* 🔥 NOVO CARD DE DOAÇÕES */}
+      {/* 🔥 NOVO CARD DE DOAÇÕES 
       <div className="card-resumo doacoes">
         <PiggyBank className="icon" />
         <h3>Doações (R$)</h3>
         <p>{animados.doacoes.toLocaleString("pt-BR")}</p>
       </div>
-
+                  */}
     </div>
   );
 }
