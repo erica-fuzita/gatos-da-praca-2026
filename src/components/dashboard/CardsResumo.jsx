@@ -38,17 +38,23 @@ export default function CardsResumo({ dados }) {
 
         if (passo >= steps) clearInterval(interval);
       }, duracao / steps);
+      return interval;
     };
 
-    animar("totalGatos", dados.totalGatos);
-    animar("disponiveis", dados.disponiveis);
-    animar("adotados", dados.adotados);
-    animar("solicitacoes", dados.solicitacoes);
-    animar("voluntarios", dados.voluntarios || 0);
-
+    const intervals = [
+    animar("totalGatos", dados.totalGatos),
+    animar("disponiveis", dados.disponiveis),
+    animar("adotados", dados.adotados),
+    animar("solicitacoes", dados.solicitacoes),
+    animar("voluntarios", dados.voluntarios || 0),   
     // 🔥 Valor fictício de doações
-    animar("doacoes", 1250); // R$ 1.250,00
+    animar("doacoes", 1250), // R$ 1.250,00
+    ];
 
+      return () => {
+    intervals.forEach(clearInterval);
+  };
+  
   }, [dados]);
 
   return (
