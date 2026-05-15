@@ -70,7 +70,7 @@ export default function Adocao() {
       {/* --- BANNER --- */}
       <div className="adocao-banner">
         <img
-          src={`${import.meta.env.BASE_URL}banners/BG-03.png`}
+          src={`${import.meta.env.BASE_URL}/imgs/BG-03.png`}
           alt="gato preto e gato malhado"
         />
       </div>

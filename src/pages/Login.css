@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("banners/BG-03.png");
+  background-image: url("/imgs/BG-03.png");
   background-color:  #c7dfc1;
   padding: 20px;
 }
